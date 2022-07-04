@@ -1,0 +1,256 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+& when (@media-common =true) {
+    .filter-fast-order {
+        display: flex;
+        justify-content: end;
+        width: 80%;
+        margin-bottom: 33px;
+        position: relative;
+
+        .search-product {
+            width: 50%;
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            background: #ffff;
+
+            .input-text {
+                height: 49px;
+                border: 2px solid #f1f2f3;
+                border-radius: 28px;
+                padding-left: 8%;
+                padding-bottom: 1%;
+                margin-bottom: -18px;
+            }
+
+            .content {
+                display: none;
+                border: 2px solid #f1f2f3;
+
+                .content-search {
+                    padding-top: 6%;
+                    margin-top: 4%;
+                    overflow-y: scroll;
+                    height: 217px;
+                }
+
+                .item {
+                    .title {
+                        font-weight: 700;
+                        margin-right: 4%;
+                        color: black;
+                    }
+
+                    &:last-child {
+                        color: red;
+                    }
+                }
+            }
+
+            .show {
+                display: block;
+                position: relative;
+                z-index: -1;
+
+                .overlay {
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: 999;
+                    background: rgba(255, 255, 255, 0.8) url("../../../../../../../media/wysiwyg/images_loading/sample.gif") center no-repeat;
+                }
+            }
+
+            .show.loading {
+                overflow: hidden;
+
+                .overlay {
+                    display: block;
+                }
+            }
+
+            .content-item {
+                display: flex;
+                justify-content: space-between;
+                box-sizing: border-box;
+                padding: 0 0 23px 23px;
+
+                .item-checkbox {
+
+                    /* Large checkboxes */
+                    .input-large {
+                        height: 22px;
+                        width: 22px;
+                        border: 2px solid #f1f2f3;
+                    }
+
+                    .input-large[type="checkbox"]:before {
+                        width: 20px;
+                        height: 20px;
+                        border: 2px solid #f1f2f3;
+                    }
+
+                    .input-large[type="checkbox"]:after {
+                        top: -20px;
+                        width: 16px;
+                        height: 16px;
+                        border: 2px solid #f1f2f3;
+                    }
+                }
+            }
+        }
+    }
+
+    .content-fast-order {
+        .table-list-order {
+            .title {
+                background-color: #1a79c1;
+                color: #fff;
+                font-size: 12px;
+
+                .col {
+                    text-align: center;
+                    border: 1px solid #1a79c1;
+                }
+            }
+
+            .content {
+                .col {
+                    border: 1px solid #ccc;
+                }
+
+                .scrollbar {
+                    height: 300px;
+                    width: 100%;
+                    overflow-y: auto;
+                }
+            }
+
+            .total {
+                .col {
+                    border: 1px solid #ccc;
+                }
+            }
+
+            .scroll {
+                overflow-y: scroll;
+                height: 400px;
+            }
+        }
+
+        .table-content {
+            position: relative;
+
+            .overlay {
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 999;
+                background: rgba(255, 255, 255, 0.8) url("../../../../../../../media/wysiwyg/images_loading/sample.gif") center no-repeat;
+            }
+        }
+
+        .table-content.loading {
+            overflow: hidden;
+
+            .overlay {
+                display: block;
+            }
+        }
+    }
+
+    .add-cart {
+        padding: 2%;
+
+        .btn-add-cart {
+            border-radius: 25px;
+            padding: 13px 28px;
+        }
+    }
+
+    .content-product {
+        td {
+            border: 1px solid #ccc;
+            padding: 2%;
+
+            .qty {
+                position: relative;
+                max-width: 50%;
+                margin: 0 auto;
+
+                input {
+                    border-radius: 25px;
+                    padding: 13px 28px;
+                    width: 62%;
+                    text-align: center;
+                    border-width: 1px;
+                }
+
+                button {
+                    background: none;
+                    border: none;
+                    box-shadow: none;
+                    position: absolute;
+                    top: 14%;
+                }
+
+                .plus {
+                    right: 0;
+                    top: 17%;
+                }
+            }
+        }
+
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .item-flex {
+                .title {
+                    background-color: #fff;
+                    font-weight: 700;
+                    margin-right: 4%;
+                    color: black;
+                }
+            }
+
+            .delete {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 18px;
+                line-height: 20px;
+                color: #757575;
+                content: '\e601';
+                font-family: 'luma-icons';
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+                overflow: hidden;
+                speak: none;
+                text-align: center;
+                cursor: pointer;
+
+                &:before {
+                    content: '\e604';
+                }
+            }
+        }
+    }
+
+    .table {
+        .price {
+            color: red;
+        }
+    }
+}

@@ -1,0 +1,135 @@
+<div class="fast-order">
+    <div class="filter-fast-order">
+        <div class="search-product">
+            <input type="text" placeholder="Search product name or SKU..." id="keyWord" name="keyWord" class="input-text" data-bind="value: keyWord, valueUpdate: 'afterkeydown', event: { keyup: getProductSearch , click: tabSearch }" />
+            <div class="content" id="content-search">
+                <div class="content-search" data-bind="foreach: productList">
+                    <div class="content-item">
+                        <div class="item-image">
+                            <img data-bind="attr: {src: src}" width="120" height="150" alt="Product Image">
+                        </div>
+                        <div class="item-content">
+                            <div class="item">
+                                <h5 class="name" data-bind="text: name"></h5>
+                            </div>
+                            <div class="item">
+                                <span class="title">SKU#:</span>
+                                <span class="sku" data-bind="text: sku"></span>
+                            </div>
+                            <div class="item">
+                                <span class="title">Color:</span>
+                                <span class="color" data-bind="text: label_super_attributes.color "></span>
+                            </div>
+                            <div class="item">
+                                <span class="title">Size:</span>
+                                <span class="size" data-bind="text: label_super_attributes.size "></span>
+                            </div>
+                            <div class="item">
+                                <span class="title-price">$</span>
+                                <span class="price" data-bind="text: price"></span>
+                            </div>
+                        </div>
+                        <div class="item-checkbox">
+                            <input type="checkbox" class="input-large" data-bind="checked: is_check, event:{ change: $parent.getProduct.bind($parent, $element, $data)}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </div>
+        <div class="add-form ">
+            <button class="action subscribe primary " type="button ">Add to form</button>
+        </div>
+    </div>
+    <div class="content-fast-order">
+        <div class="table-content">
+            <div class="table-list-order">
+                <table class="data table table-agent-items recent ">
+                    <thead class="title ">
+                        <tr>
+                            <th scope="col " class="col product-sku ">
+                                SKU
+                            </th>
+                            <th scope="col " class="col product-name ">
+                                PRODUCT
+                            </th>
+                            <th scope="col " class="col product-qty ">
+                                QTY
+                            </th>
+                            <th scope="col " class="col subtotal ">
+                                SUBTOTAL
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="content-product" data-bind="foreach: products">
+                        <tr>
+                            <td>
+                                <div class="item-sku ">
+                                    <span class="sku " data-bind="text: sku "></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="product">
+                                    <div class="item-image ">
+                                        <img data-bind="attr: {src: src} " width="120 " height="150 " alt="Product Image ">
+                                    </div>
+                                    <div class="item-content ">
+                                        <div class="item-name ">
+                                            <h5 class="name" data-bind="text: name "></h5>
+                                        </div>
+                                        <div class="item-flex ">
+                                            <span class="title">Color</span>
+                                            <span class="color" data-bind="text: label_super_attributes.color "></span>
+                                        </div>
+                                        <div class="item-flex ">
+                                            <span class="title">Size</span>
+                                            <span class="size" data-bind="text: label_super_attributes.size "></span>
+                                        </div>
+                                        <div class="item-total price">
+                                            <span>$</span>
+                                            <span class="total" data-bind="text: price "></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-icon">
+                                        <div class="icon">
+                                            <span class="delete" data-bind="click: $parent.delete.bind($parent, $data)"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="field qty">
+                                    <button class="minus" data-bind="value: entity_id,click: $parent.minusQty.bind($parent, $data)">-</button>
+                                    <input type="number " name="qty" id="qty" min="1" data-bind="value: qty, valueUpdate: 'afterkeydown', event: { keyup: $parent.changeQty.bind($parent, $data) }">
+                                    <button class="plus" data-bind="value: entity_id, click: $parent.plusQty.bind($parent, $data)">+</button>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="price">$<span data-bind="text: total"></span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="total ">
+                        <tr>
+                            <th scope="col " class="col "></th>
+                            <th scope="col " class="col product-lines ">
+                                Filled lines Number: <span data-bind="text: lineNumber"></span>
+                            </th>
+                            <th scope="col " class="col product-total-qty ">
+                                Total Qty: <span data-bind="text: totalQty"></span>
+                            </th>
+                            <th scope="col " class="col subtotal">
+                                Sub Total: <span class="price">$</span><span class="price" data-bind="text: subTotal"></span>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="overlay"></div>
+        </div>
+        <div class="add-cart ">
+            <button class="action subscribe primary btn-add-cart" data-bind="event: { click: addToCart }" type="button">Add to cart</button>
+        </div>
+    </div>
+</div>
